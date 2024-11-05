@@ -22,6 +22,11 @@ export const Background = styled.div`
     content: '';
     opacity: 0.5;
   }
+
+  .container {
+    z-index: 1;
+    position: relative;
+  }
 `
 export const Name = styled.h2`
   font-size: 32px;
