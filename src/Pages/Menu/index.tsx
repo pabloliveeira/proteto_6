@@ -1,60 +1,23 @@
 import MenuList from '../../components/MenuList'
-import RestaurantFood from '../../models/RestaurantFoods'
 import HeroMenu from '../../components/HeroMenu'
 import Banner from '../../components/Banner'
-import pizza from '../../assets/images/piiza.png'
+import { useEffect, useState } from 'react'
+import { Food } from '../Home'
 
-const menu: RestaurantFood[] = [
-  {
-    id: 1,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    title: 'Pizza Marguerita',
-    image: pizza
-  },
-  {
-    id: 2,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    title: 'Pizza Marguerita',
-    image: pizza
-  },
-  {
-    id: 3,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    title: 'Pizza Marguerita',
-    image: pizza
-  },
-  {
-    id: 4,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    title: 'Pizza Marguerita',
-    image: pizza
-  },
-  {
-    id: 5,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    title: 'Pizza Marguerita',
-    image: pizza
-  },
-  {
-    id: 6,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    title: 'Pizza Marguerita',
-    image: pizza
-  }
-]
-
-const Menu = () => (
-  <>
-    <HeroMenu />
-    <Banner />
-    <MenuList foods={menu} />
-  </>
-)
+const Menu = () => {
+  const [menu, setMenu] = useState<Food[]>([])
+  useEffect(() => {
+    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+      .then((res) => res.json())
+      .then((res) => setMenu(res))
+  }, [])
+  return (
+    <>
+      <HeroMenu />
+      <Banner />
+      <MenuList foods={menu} />
+    </>
+  )
+}
 
 export default Menu

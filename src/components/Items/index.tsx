@@ -5,22 +5,22 @@ import Button from '../Button'
 
 type Props = {
   title: string
-  infos: string[]
+  tipo: string
   image: string
-  nota: string
+  nota: number
   description: string
+  destaque: string
 }
 
-const Items = ({ title, infos, image, nota, description }: Props) => (
+const Items = ({ title, image, nota, description, tipo, destaque }: Props) => (
   <Card>
     <img src={image} alt={title} />
     <div className="container">
       <div>
         <Titulo>{title}</Titulo>
         <Infos>
-          {infos.map((info) => (
-            <Tag key={info}>{info}</Tag>
-          ))}
+          <Tag>{destaque}</Tag>
+          <Tag>{tipo}</Tag>
         </Infos>
         <Nota>
           {nota}

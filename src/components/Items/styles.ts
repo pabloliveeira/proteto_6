@@ -7,6 +7,13 @@ export const Card = styled.div`
   margin-top: 80px;
   color: ${cores.laranja};
   position: relative;
+  border: 1px solid ${cores.laranja};
+
+  > img {
+    width: 472px;
+    height: 217px;
+    object-fit: cover;
+  }
 
   ${TagContainer} {
     margin-right: 8px;
