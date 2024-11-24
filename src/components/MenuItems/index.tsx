@@ -8,9 +8,11 @@ type Props = {
   title: string
   image: string
   description: string
+  porcao: string
+  preco: number
 }
 
-const MenuItems = ({ title, image, description }: Props) => {
+const MenuItems = ({ title, image, description, preco, porcao }: Props) => {
   const [modalEstaAberto, setModalEstaAberto] = useState(false)
   return (
     <>
@@ -33,9 +35,11 @@ const MenuItems = ({ title, image, description }: Props) => {
             <h3>{title}</h3>
             <Descricao>
               {description} <br /> <br />
-              Serve: de 2 a 3 pessoas
+              Serve: de {porcao}
             </Descricao>
-            <ButtonContainer>Adicionar ao carrinho - R$ 60,90</ButtonContainer>
+            <ButtonContainer>
+              Adicionar ao carrinho - R$ {preco}
+            </ButtonContainer>
           </div>
           <div className="close">
             <img

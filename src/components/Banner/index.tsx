@@ -1,6 +1,5 @@
 import { Background, Category, Name } from './styles'
 
-import restaurantBg from '../../assets/images/restaurant-bg.png'
 import { useEffect, useState } from 'react'
 import { Food } from '../../Pages/Home'
 

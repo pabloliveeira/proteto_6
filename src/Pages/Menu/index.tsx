@@ -2,20 +2,23 @@ import MenuList from '../../components/MenuList'
 import HeroMenu from '../../components/HeroMenu'
 import Banner from '../../components/Banner'
 import { useEffect, useState } from 'react'
-import { Food } from '../Home'
+import { Cardapio } from '../Home'
+import { useParams } from 'react-router-dom'
 
 const Menu = () => {
-  const [menu, setMenu] = useState<Food[]>([])
+  const { id } = useParams()
+  const [pratos, setMenu] = useState<Cardapio[]>([])
   useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
       .then((res) => res.json())
       .then((res) => setMenu(res))
-  }, [])
+  }, [id])
+
   return (
     <>
       <HeroMenu />
       <Banner />
-      <MenuList foods={menu} />
+      <MenuList menu={pratos} />
     </>
   )
 }
