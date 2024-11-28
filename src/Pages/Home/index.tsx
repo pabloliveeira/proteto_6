@@ -13,7 +13,7 @@ export type Food = {
   capa: string
   cardapio: Cardapio[]
 }
-export type Cardapio = {
+export interface Cardapio {
   foto: string
   preco: number
   id: number

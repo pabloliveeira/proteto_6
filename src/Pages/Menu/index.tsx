@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom'
 
 const Menu = () => {
   const { id } = useParams()
-  const [pratos, setMenu] = useState<Cardapio[]>([])
+  const [prato, setMenu] = useState<Cardapio[]>([])
   useEffect(() => {
     fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
       .then((res) => res.json())
@@ -18,7 +18,7 @@ const Menu = () => {
     <>
       <HeroMenu />
       <Banner />
-      <MenuList menu={pratos} />
+      <MenuList pratos={prato} />
     </>
   )
 }
